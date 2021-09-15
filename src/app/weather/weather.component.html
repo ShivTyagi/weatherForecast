@@ -1,0 +1,32 @@
+<div class="container weather">
+    <div class="panel panel-default">
+      <div class="panel-heading">Weather Forecast</div>
+      <div class="panel-body">
+        <h2>City</h2>
+        <div> 
+          <select class="form-select" aria-label="Default select example" #selectCity (change)='onCitySelected(selectCity.value)'> 
+              <option selected>Select City</option>
+              <option value="Raleigh">Raleigh</option>
+              <option value="Quebec">Quebec</option>
+              <option value="Houston">Houston</option>
+         </select> </div>
+         <div *ngIf="forecast">
+            <div class="forecast-wraper">
+                    <div class="forecast" *ngFor="let inputData of forecast | slice:0:5;"> 
+                          <app-wather-card [weatherData]="inputData"> </app-wather-card>
+                </div>
+                <!-- <div class="forecast" *ngFor="let weatherData of forecast | slice:0:5;"> 
+                    <h3> {{dateObj.dayName}}<div> {{dateObj.monthName}} {{dateObj.date}}  </div></h3>
+                    <div class="icon-wrap"> <img src='{{ "assets/icons/"+ weatherData.weather.icon + ".png" }}' title="
+                        {{weatherData.weather.description}}"/> </div> 
+                    <div class="temp">{{weatherData.temp}}</div> 
+                   </div> -->
+                   
+             </div>
+             <div class="action"> <button type="button" class="btn btn-primary"> Apply </button> </div>
+         </div>
+        
+       
+      </div>
+    </div>
+  </div>
